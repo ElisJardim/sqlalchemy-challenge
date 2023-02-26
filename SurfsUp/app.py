@@ -42,17 +42,20 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     print("Server requested climate app home page...")
-    return (
-        f"Welcome to the Hawaii Climate App!<br/>"
-        f"----------------------------------<br/>"
-        f"Available Routes:<br/>"
-        f"/api/v1.0/precipitation<br/>"
-        f"/api/v1.0/stations<br/>"
-        f"/api/v1.0/tobs<br/>"
-        f"/api/v1.0/start_date<br/>"
-        f"/api/v1.0/start_date/end_date<br/>"
-        f"<br>"
-        f"Note: Replace 'start_date' and 'end_date' with your query dates. Format for querying is 'YYYY-MM-DD'"
+    return ("""
+        Welcome to the Hawaii Climate App!<br/>
+        ----------------------------------<br/>
+        Available Routes:<br/>
+        <ul>
+            <li>/api/v1.0/precipitation - <a href="/api/v1.0/precipitation">Precipitation for the last 12 months</a></li>
+            <li>/api/v1.0/stations - <a href="/api/v1.0/stations">List of stations</a></li>
+            <li>/api/v1.0/tobs - <a href="/api/v1.0/tobs">Dates and temperature observations of the most-active station for the previous year of data</a></li>
+            <li>/api/v1.0/start_date - <a href="/api/v1.0/start_date">Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start date</a></li>
+            <li>/api/v1.0/start_date/end_date - <a href="/api/v1.0/start_date/end_date">Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start-end range</a></li>
+        </ul>
+        <br>
+        <b>Note</b>: Replace 'start_date' and 'end_date' with your query dates. Format for querying is 'YYYY-MM-DD'
+    """
     )
 
 @app.route("/api/v1.0/precipitation")

@@ -36,7 +36,7 @@ In this section, you’ll use Python and SQLAlchemy to do a basic climate analys
 
     #### Result (2,3,4 & 5)
 
-    ![Precipitation](./images/precipitation_df.png)
+    ![Precipitation](./Images/precipitation_df.png)
 
 6. Plot the results by using the DataFrame plot method, as the following image shows:
 
